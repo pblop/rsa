@@ -1,5 +1,4 @@
 use rand::Rng;
-use rand::prelude::ThreadRng;
 
 // Transcription of the following pseudocode found in Wikipedia
 /*
