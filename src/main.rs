@@ -1,4 +1,6 @@
 use rand::Rng;
+use num::integer::{lcm};
+use modinverse::modinverse;
 
 // Transcription of the following pseudocode found in Wikipedia
 /*
@@ -54,7 +56,27 @@ fn generate_prime() -> u32 {
 }
 
 fn main() {
-    for _ in 0..10 {
-        println!("prime {}", generate_prime());
-    }
+    // Choose p
+    let p: u32 = generate_prime();
+    println!("p={}", p);
+    // Choose q
+    let q: u32 = generate_prime();
+    println!("q={}", q);
+    // Compute n = p * q
+    let n: u64 = (p as u64) * (q as u64);
+    println!("n={}", n);
+
+    // Compute λ(n), where λ is Carmichael's totient function.
+    // Since n = pq, λ(n) = lcm(λ(p),λ(q)), and since p and q are prime, λ(p) = φ(p) = p − 1 and likewise λ(q) = q − 1.
+    // Hence λ(n) = lcm(p − 1, q − 1).
+    let lambda_n = lcm((p - 1) as u64, (q - 1) as u64);
+    println!("λ(n)={}", lambda_n);
+
+    // Choose an integer e such that 1 < e < λ(n) and gcd(e, λ(n)) = 1; that is, e and λ(n) are coprime.
+    // I've chosen an industry standard e, will always be coprime with whatever λ(n) is because it's a Fermat prime.
+    let e: u32 = 65537;
+    println!("e={}", e);
+
+    let d = modinverse(e as i128, lambda_n as i128).unwrap();
+    println!("d={}", d as u64);
 }
