@@ -68,7 +68,7 @@ fn generate_prime() -> BigUint {
     let mut p: BigUint;
     loop {
         // Generate a random BigUint integer 'p'
-        p = rng.gen_biguint(2^64);
+        p = rng.gen_biguint_range(&BigUint::from_u8(2).unwrap().pow(511), &BigUint::from_u8(2).unwrap().pow(512));
 
         // Return 'p' if 'p' is prime
         // FIX: is .clone() really necessary?
