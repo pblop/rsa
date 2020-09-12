@@ -10,3 +10,5 @@ edition = "2018"
 rand = "0.7"
 num = "0.1"
 modinverse = "0.1"
+num-bigint = { version = "0.3", features = ["rand"] }
+num-traits = "0.2"

@@ -14,6 +14,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ab0b2961-c070-41cb-ae0b-29552974b312" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cargo.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
     </list>
@@ -89,7 +90,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1599850937727</updated>
-      <workItem from="1599850941017" duration="9573000" />
+      <workItem from="1599850941017" duration="14830000" />
     </task>
     <servers />
   </component>
@@ -97,25 +98,48 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1398" height="232" key="GridCell.Tab.0.bottom" timestamp="1599869441171">
+    <state width="1398" height="228" key="GridCell.Tab.0.bottom" timestamp="1599912296119">
       <screen x="0" y="23" width="1440" height="835" />
     </state>
     <state width="1398" height="232" key="GridCell.Tab.0.bottom/0.23.1440.834@0.23.1440.834" timestamp="1599868376332" />
-    <state width="1398" height="232" key="GridCell.Tab.0.bottom/0.23.1440.835@0.23.1440.835" timestamp="1599869441171" />
-    <state width="1398" height="232" key="GridCell.Tab.0.center" timestamp="1599869441170">
+    <state width="1398" height="228" key="GridCell.Tab.0.bottom/0.23.1440.835@0.23.1440.835" timestamp="1599912296119" />
+    <state width="1398" height="228" key="GridCell.Tab.0.center" timestamp="1599912296118">
       <screen x="0" y="23" width="1440" height="835" />
     </state>
     <state width="1398" height="232" key="GridCell.Tab.0.center/0.23.1440.834@0.23.1440.834" timestamp="1599868376331" />
-    <state width="1398" height="232" key="GridCell.Tab.0.center/0.23.1440.835@0.23.1440.835" timestamp="1599869441170" />
-    <state width="1398" height="232" key="GridCell.Tab.0.left" timestamp="1599869441170">
+    <state width="1398" height="228" key="GridCell.Tab.0.center/0.23.1440.835@0.23.1440.835" timestamp="1599912296118" />
+    <state width="1398" height="228" key="GridCell.Tab.0.left" timestamp="1599912296118">
       <screen x="0" y="23" width="1440" height="835" />
     </state>
     <state width="1398" height="232" key="GridCell.Tab.0.left/0.23.1440.834@0.23.1440.834" timestamp="1599868376331" />
-    <state width="1398" height="232" key="GridCell.Tab.0.left/0.23.1440.835@0.23.1440.835" timestamp="1599869441170" />
-    <state width="1398" height="232" key="GridCell.Tab.0.right" timestamp="1599869441170">
+    <state width="1398" height="228" key="GridCell.Tab.0.left/0.23.1440.835@0.23.1440.835" timestamp="1599912296118" />
+    <state width="1398" height="228" key="GridCell.Tab.0.right" timestamp="1599912296119">
       <screen x="0" y="23" width="1440" height="835" />
     </state>
     <state width="1398" height="232" key="GridCell.Tab.0.right/0.23.1440.834@0.23.1440.834" timestamp="1599868376332" />
-    <state width="1398" height="232" key="GridCell.Tab.0.right/0.23.1440.835@0.23.1440.835" timestamp="1599869441170" />
+    <state width="1398" height="228" key="GridCell.Tab.0.right/0.23.1440.835@0.23.1440.835" timestamp="1599912296119" />
+    <state width="1398" height="268" key="GridCell.Tab.1.bottom" timestamp="1599911387269">
+      <screen x="0" y="23" width="1440" height="835" />
+    </state>
+    <state width="1398" height="268" key="GridCell.Tab.1.bottom/0.23.1440.835@0.23.1440.835" timestamp="1599911387269" />
+    <state width="1398" height="268" key="GridCell.Tab.1.center" timestamp="1599911387268">
+      <screen x="0" y="23" width="1440" height="835" />
+    </state>
+    <state width="1398" height="268" key="GridCell.Tab.1.center/0.23.1440.835@0.23.1440.835" timestamp="1599911387268" />
+    <state width="1398" height="268" key="GridCell.Tab.1.left" timestamp="1599911387267">
+      <screen x="0" y="23" width="1440" height="835" />
+    </state>
+    <state width="1398" height="268" key="GridCell.Tab.1.left/0.23.1440.835@0.23.1440.835" timestamp="1599911387267" />
+    <state width="1398" height="268" key="GridCell.Tab.1.right" timestamp="1599911387269">
+      <screen x="0" y="23" width="1440" height="835" />
+    </state>
+    <state width="1398" height="268" key="GridCell.Tab.1.right/0.23.1440.835@0.23.1440.835" timestamp="1599911387269" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="CargoCommandRunConfiguration">
+        <watch expression="x" language="Rust" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>
