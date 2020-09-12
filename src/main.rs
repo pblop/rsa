@@ -55,7 +55,18 @@ fn generate_prime() -> u32 {
     p
 }
 
+// Python-style input
+fn input(query: &str) -> String {
+    print!(query);
+    let mut input = String::new();
+    std::io::stdin().read_line(&mut input);
+
+    input
+}
+
 fn main() {
+    println!("rsa");
+    println!("computing...");
     // Choose p
     let p: u32 = generate_prime();
     println!("p={}", p);
@@ -77,6 +88,8 @@ fn main() {
     let e: u32 = 65537;
     println!("e={}", e);
 
-    let d = modinverse(e as i128, lambda_n as i128).unwrap();
-    println!("d={}", d as u64);
+    let d = modinverse(e as i128, lambda_n as i128).unwrap() as u64;
+    println!("d={}", d);
+    println!("...done!");
+
 }
