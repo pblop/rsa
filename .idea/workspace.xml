@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated />
   </component>
@@ -14,8 +23,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ab0b2961-c070-41cb-ae0b-29552974b312" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cargo.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -25,6 +32,13 @@
   </component>
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Rust File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -49,10 +63,34 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="org.rust.cargo.project.model.PROJECT_DISCOVERY" value="true" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Cargo Command.Run">
     <configuration name="Run" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
       <option name="channel" value="DEFAULT" />
       <option name="command" value="run --package rsa --bin rsa" />
+      <option name="allFeatures" value="false" />
+      <option name="emulateTerminal" value="false" />
+      <option name="backtrace" value="SHORT" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <envs />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test test_is_probable_prime" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="channel" value="DEFAULT" />
+      <option name="command" value="test --package rsa --bin rsa test_is_probable_prime -- --exact" />
+      <option name="allFeatures" value="false" />
+      <option name="emulateTerminal" value="false" />
+      <option name="backtrace" value="SHORT" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <envs />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test test_xgcd" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="channel" value="DEFAULT" />
+      <option name="command" value="test --package rsa --bin rsa test_xgcd -- --exact" />
       <option name="allFeatures" value="false" />
       <option name="emulateTerminal" value="false" />
       <option name="backtrace" value="SHORT" />
@@ -78,6 +116,12 @@
         <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Cargo Command.Test test_is_probable_prime" />
+        <item itemvalue="Cargo Command.Test test_xgcd" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="RustProjectSettings">
     <option name="toolchainHomeDirectory" value="$USER_HOME$/.cargo/bin" />
@@ -90,34 +134,49 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1599850937727</updated>
-      <workItem from="1599850941017" duration="14830000" />
+      <workItem from="1599850941017" duration="22806000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="WindowStateProjectService">
-    <state width="1398" height="228" key="GridCell.Tab.0.bottom" timestamp="1599912296119">
+    <state x="458" y="194" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1599951952462">
       <screen x="0" y="23" width="1440" height="835" />
     </state>
-    <state width="1398" height="232" key="GridCell.Tab.0.bottom/0.23.1440.834@0.23.1440.834" timestamp="1599868376332" />
-    <state width="1398" height="228" key="GridCell.Tab.0.bottom/0.23.1440.835@0.23.1440.835" timestamp="1599912296119" />
-    <state width="1398" height="228" key="GridCell.Tab.0.center" timestamp="1599912296118">
+    <state x="458" y="194" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.835@0.23.1440.835" timestamp="1599951952462" />
+    <state width="1398" height="228" key="GridCell.Tab.0.bottom" timestamp="1599954541911">
       <screen x="0" y="23" width="1440" height="835" />
     </state>
-    <state width="1398" height="232" key="GridCell.Tab.0.center/0.23.1440.834@0.23.1440.834" timestamp="1599868376331" />
-    <state width="1398" height="228" key="GridCell.Tab.0.center/0.23.1440.835@0.23.1440.835" timestamp="1599912296118" />
-    <state width="1398" height="228" key="GridCell.Tab.0.left" timestamp="1599912296118">
+    <state width="1398" height="228" key="GridCell.Tab.0.bottom/0.23.1440.834@0.23.1440.834" timestamp="1599950145083" />
+    <state width="1398" height="228" key="GridCell.Tab.0.bottom/0.23.1440.835@0.23.1440.835" timestamp="1599954541911" />
+    <state width="1398" height="228" key="GridCell.Tab.0.center" timestamp="1599954541910">
       <screen x="0" y="23" width="1440" height="835" />
     </state>
-    <state width="1398" height="232" key="GridCell.Tab.0.left/0.23.1440.834@0.23.1440.834" timestamp="1599868376331" />
-    <state width="1398" height="228" key="GridCell.Tab.0.left/0.23.1440.835@0.23.1440.835" timestamp="1599912296118" />
-    <state width="1398" height="228" key="GridCell.Tab.0.right" timestamp="1599912296119">
+    <state width="1398" height="228" key="GridCell.Tab.0.center/0.23.1440.834@0.23.1440.834" timestamp="1599950145082" />
+    <state width="1398" height="228" key="GridCell.Tab.0.center/0.23.1440.835@0.23.1440.835" timestamp="1599954541910" />
+    <state width="1398" height="228" key="GridCell.Tab.0.left" timestamp="1599954541910">
       <screen x="0" y="23" width="1440" height="835" />
     </state>
-    <state width="1398" height="232" key="GridCell.Tab.0.right/0.23.1440.834@0.23.1440.834" timestamp="1599868376332" />
-    <state width="1398" height="228" key="GridCell.Tab.0.right/0.23.1440.835@0.23.1440.835" timestamp="1599912296119" />
+    <state width="1398" height="228" key="GridCell.Tab.0.left/0.23.1440.834@0.23.1440.834" timestamp="1599950145082" />
+    <state width="1398" height="228" key="GridCell.Tab.0.left/0.23.1440.835@0.23.1440.835" timestamp="1599954541910" />
+    <state width="1398" height="228" key="GridCell.Tab.0.right" timestamp="1599954541911">
+      <screen x="0" y="23" width="1440" height="835" />
+    </state>
+    <state width="1398" height="228" key="GridCell.Tab.0.right/0.23.1440.834@0.23.1440.834" timestamp="1599950145083" />
+    <state width="1398" height="228" key="GridCell.Tab.0.right/0.23.1440.835@0.23.1440.835" timestamp="1599954541911" />
     <state width="1398" height="268" key="GridCell.Tab.1.bottom" timestamp="1599911387269">
       <screen x="0" y="23" width="1440" height="835" />
     </state>
