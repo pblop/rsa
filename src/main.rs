@@ -102,7 +102,7 @@ fn xgcd(a: &BigInt, b: &BigInt) -> (BigInt, BigInt, BigInt) {
     }
 }
 
-// Function taken from the modinverse crate (version 0.1). I'm not using that crate because
+// Function taken from the 'modinverse' crate (version 0.1). I'm not using that crate because
 // BigInt doesn't implement the Copy trait and it's needed in order to use that crate.
 // Using a different extended euclidean algorithm implementation.
 fn modinverse(a: &BigInt, m: &BigInt) -> Option<BigInt> {
