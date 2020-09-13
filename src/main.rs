@@ -165,7 +165,7 @@ fn test_modinverse() {
 }
 
 
-fn generate_rsa_key() -> (BigUint, BigUint, BigUint, BigUint, BigUint, BigUint) {
+fn generate_rsa_key() -> (BigUint, BigUint, BigUint) {
     // Choose p
     let p: BigUint = generate_prime();
     println!("p={}", p);
@@ -190,14 +190,14 @@ fn generate_rsa_key() -> (BigUint, BigUint, BigUint, BigUint, BigUint, BigUint) 
     let d = modinverse(&(e.to_bigint().unwrap()), &(lambda_n.to_bigint().unwrap())).unwrap().to_biguint().unwrap();
     println!("d={}", d);
 
-    (p,q,n,lambda_n,e,d)
+    (n,e,d)
 }
 
 fn main() {
     println!("rsa");
     println!("computing...");
     let now = Instant::now();
-    let (p, q, n, lambda_n, e, d) = generate_rsa_key();
+    let (n, e, d) = generate_rsa_key();
     let elapsed = now.elapsed();
     println!("...done in {:.4}!", elapsed.as_secs_f64());
 
