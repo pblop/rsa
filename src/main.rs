@@ -61,7 +61,6 @@ fn generate_prime() -> BigUint {
         p = rng.gen_biguint_range(&BigUint::from_u8(2).unwrap().pow(511), &BigUint::from_u8(2).unwrap().pow(512));
 
         // Return 'p' if 'p' is prime
-        // FIX: is .clone() really necessary?
         if is_probable_prime(&p, 40) {
             break;
         }
@@ -258,7 +257,5 @@ fn main() {
         } else {
             println!("command not found, use help for a list of commands and their usage");
         }
-
     }
-
 }
