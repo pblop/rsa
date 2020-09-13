@@ -210,13 +210,21 @@ fn main() {
         if input.starts_with("help") {
             println!("help - print this message");
             println!("encrypt <text> - encrypt text with your rsa public key");
-            println!("decrypt <text> - decrypt text with your rsa private key (not implemented)");
+            println!("decrypt <text> - decrypt text with your rsa private key");
+            println!("setpub <n> <e> - set the other party's public key (not implemented)");
+            println!("getpub - get own and the other party's public key (not implemented)");
         } else if input.starts_with("encrypt") {
             input = input.replace("encrypt ", "").replace("\n", "");
-            let input_biguint = BigUint::from_bytes_be(input.as_bytes());
-            println!("output: {}", input_biguint.modpow(&e, &n));
+            let string_as_biguint = BigUint::from_bytes_be(input.as_bytes());
+            println!("output: {}", string_as_biguint.modpow(&e, &n));
         } else if input.starts_with("decrypt") {
-            println!("not implemented");
+            input = input.replace("decrypt ", "").replace("\n", "");
+            let input_biguint = input.parse::<BigUint>().unwrap();
+            let decrypted_biguint = input_biguint.modpow(&d, &n);
+
+            let mut decrypted_string = String::new();
+            decrypted_biguint.to_bytes_be().as_slice().read_to_string(&mut decrypted_string).unwrap();
+            println!("output: {}", decrypted_string);
         }
 
     }
