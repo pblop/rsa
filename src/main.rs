@@ -2,6 +2,7 @@ use num_bigint::{BigUint, BigInt, ToBigInt, ToBigUint, RandBigInt};
 use num_traits::{Zero, One, FromPrimitive, ToPrimitive};
 use num::integer::{lcm};
 use std::cmp::Ordering;
+use std::time::Instant;
 
 fn cmp(a: &BigUint, b: u32) -> Ordering {
     let uintb = BigUint::from(b);
@@ -156,9 +157,7 @@ fn test_is_probable_prime() {
     }
 }
 
-fn main() {
-    println!("rsa");
-    println!("computing...");
+fn generate_rsa_key() -> (BigUint, BigUint, BigUint, BigUint, BigUint, BigUint) {
     // Choose p
     let p: BigUint = generate_prime();
     println!("p={}", p);
@@ -180,7 +179,18 @@ fn main() {
     let e: BigUint = BigUint::from_u64(65537).unwrap();
     println!("e={}", e);
 
-    let d = modinverse(&BigInt::from(e), &BigInt::from(lambda_n)).unwrap();
+    let d = modinverse(&(e.to_bigint().unwrap()), &(lambda_n.to_bigint().unwrap())).unwrap().to_biguint().unwrap();
     println!("d={}", d);
-    println!("...done!");
+
+    (p,q,n,lambda_n,e,d)
+}
+
+fn main() {
+    println!("rsa");
+    println!("computing...");
+    let now = Instant::now();
+    let (p, q, n, lambda_n, e, d) = generate_rsa_key();
+    let elapsed = now.elapsed();
+    println!("...done in {:.4}!", elapsed.as_secs_f64());
+
 }
