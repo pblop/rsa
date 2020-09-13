@@ -2,6 +2,7 @@ use num_bigint::{BigUint, BigInt, ToBigInt, RandBigInt};
 use num_traits::{Zero, One, FromPrimitive, ToPrimitive};
 use num::integer::{lcm};
 use std::time::Instant;
+use std::io::{stdin, stdout, Write, Read};
 
 // Implementation of the Rabin-Miller algorithm
 // Returns true if n is probably prime or false if n is definitely composite
@@ -199,4 +200,25 @@ fn main() {
     let (p, q, n, lambda_n, e, d) = generate_rsa_key();
     let elapsed = now.elapsed();
     println!("...done in {:.4}!", elapsed.as_secs_f64());
+
+    loop {
+        print!("> ", );
+        stdout().flush().unwrap();
+        let mut input = String::new();
+        stdin().read_line(&mut input).expect("error: unable to read user input");
+
+        if input.starts_with("help") {
+            println!("help - print this message");
+            println!("encrypt <text> - encrypt text with your rsa public key");
+            println!("decrypt <text> - decrypt text with your rsa private key (not implemented)");
+        } else if input.starts_with("encrypt") {
+            input = input.replace("encrypt ", "").replace("\n", "");
+            let input_biguint = BigUint::from_bytes_be(input.as_bytes());
+            println!("output: {}", input_biguint.modpow(&e, &n));
+        } else if input.starts_with("decrypt") {
+            println!("not implemented");
+        }
+
+    }
+
 }
