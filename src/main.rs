@@ -227,7 +227,7 @@ fn main() {
 
             let mut decrypted_string = String::new();
             match decrypted_biguint.to_bytes_be().as_slice().read_to_string(&mut decrypted_string) {
-                Ok(u) => println!("output: {}", decrypted_string),
+                Ok(_) => println!("output: {}", decrypted_string),
                 Err(e) => println!("error while decrypting: {}", e)
             }
         } else if input.starts_with("getpub") {
@@ -250,6 +250,8 @@ fn main() {
             } else {
                 println!("setpub error: invalid argument length");
             }
+        } else {
+            println!("command not found, use help for a list of commands and their usage");
         }
 
     }
