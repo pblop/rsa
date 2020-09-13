@@ -202,7 +202,7 @@ fn main() {
     println!("...done in {:.4}!", elapsed.as_secs_f64());
 
     let mut other_e: BigUint = BigUint::zero();
-    let mut other_d: BigUint = BigUint::zero();
+    let mut other_n: BigUint = BigUint::zero();
 
     loop {
         print!("> ", );
@@ -215,28 +215,40 @@ fn main() {
             println!("encrypt <text> - encrypt text with your rsa public key");
             println!("decrypt <text> - decrypt text with your rsa private key");
             println!("getpub - get own and the other party's public key");
-            println!("setpub <n> <e> - set the other party's public key (not implemented)");
+            println!("setpub <e> <n> - set the other party's public key");
         } else if input.starts_with("encrypt") {
             input = input.replace("encrypt ", "").replace("\n", "");
             let string_as_biguint = BigUint::from_bytes_be(input.as_bytes());
-            println!("output: {}", string_as_biguint.modpow(&e, &n));
+            println!("output: {}", string_as_biguint.modpow(&other_e, &other_n));
         } else if input.starts_with("decrypt") {
             input = input.replace("decrypt ", "").replace("\n", "");
             let input_biguint = input.parse::<BigUint>().unwrap();
             let decrypted_biguint = input_biguint.modpow(&d, &n);
 
             let mut decrypted_string = String::new();
-            decrypted_biguint.to_bytes_be().as_slice().read_to_string(&mut decrypted_string).unwrap();
-            println!("output: {}", decrypted_string);
+            match decrypted_biguint.to_bytes_be().as_slice().read_to_string(&mut decrypted_string) {
+                Ok(u) => println!("output: {}", decrypted_string),
+                Err(e) => println!("error while decrypting: {}", e)
+            }
         } else if input.starts_with("getpub") {
             println!("own public key:");
             println!("    e={}", e);
-            println!("    d={}", d);
+            println!("    n={}", n);
             println!("other party's public key:");
             println!("    e={}", other_e);
-            println!("    d={}", other_d);
-            if other_d == BigUint::zero() || other_e == BigUint::one() {
+            println!("    n={}", other_n);
+            if other_n == BigUint::zero() || other_e == BigUint::zero() {
                 println!("WARNING! Other party's key is not initialized.");
+            }
+        } else if input.starts_with("setpub") {
+            input = input.replace("setpub", "").trim().to_string();
+            let split_input = input.split(" ");
+            let split_input_vec = split_input.collect::<Vec<&str>>();
+            if split_input_vec.len() == 2 {
+                other_e = split_input_vec[0].to_string().parse::<BigUint>().unwrap();
+                other_n = split_input_vec[1].to_string().parse::<BigUint>().unwrap();
+            } else {
+                println!("setpub error: invalid argument length");
             }
         }
 
