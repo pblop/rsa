@@ -48,10 +48,11 @@ fn is_probable_prime(n: &BigUint, ntests: usize) -> bool {
                 x = x.modpow(&two, n);
                 if x == one {
                     return false;
-                } else {
+                }
+                if x == n - &one{
                     break;
                 }
-                r += one;
+                r += BigUint::one();
             }
             if r == s {
                 // None of the steps made x equal n-1.
@@ -113,6 +114,9 @@ fn xgcd(a: &BigInt, b: &BigInt) -> (BigInt, BigInt, BigInt) {
     }
 }
 
+// Function taken from the modinverse crate (version 0.1). I'm not using that crate because
+// BigInt doesn't implement the Copy trait and it's needed in order to use that crate.
+// Using a different extended euclidean algorithm implementation.
 fn modinverse(a: &BigInt, m: &BigInt) -> Option<BigInt> {
     let (g, x, _) = xgcd(a, m);
     if g != BigInt::one() {
@@ -156,6 +160,22 @@ fn test_is_probable_prime() {
         assert!(!is_probable_prime(non_prime, 40), "{} is not a prime number but our test returns that it is", non_prime);
     }
 }
+#[test]
+fn test_modinverse() {
+    let does_exist = modinverse(&BigInt::from_u32(3).unwrap(), &BigInt::from_u32(26).unwrap());
+    let does_not_exist = modinverse(&BigInt::from_u32(4).unwrap(), &BigInt::from_u32(32).unwrap());
+
+    match does_exist {
+      Some(x) => assert_eq!(x, BigInt::from_u32(9).unwrap()),
+      None => panic!("modinverse() didn't work as expected"),
+    }
+
+    match does_not_exist {
+      Some(x) => panic!("modinverse() found an inverse when it shouldn't have"),
+      None => {},
+    }
+}
+
 
 fn generate_rsa_key() -> (BigUint, BigUint, BigUint, BigUint, BigUint, BigUint) {
     // Choose p
@@ -192,5 +212,4 @@ fn main() {
     let (p, q, n, lambda_n, e, d) = generate_rsa_key();
     let elapsed = now.elapsed();
     println!("...done in {:.4}!", elapsed.as_secs_f64());
-
 }
