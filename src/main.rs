@@ -1,20 +1,7 @@
-use num_bigint::{BigUint, BigInt, ToBigInt, ToBigUint, RandBigInt};
+use num_bigint::{BigUint, BigInt, ToBigInt, RandBigInt};
 use num_traits::{Zero, One, FromPrimitive, ToPrimitive};
 use num::integer::{lcm};
-use std::cmp::Ordering;
 use std::time::Instant;
-
-fn cmp(a: &BigUint, b: u32) -> Ordering {
-    let uintb = BigUint::from(b);
-    if a < &uintb {
-        Ordering::Less
-    } else if a == &uintb {
-        Ordering::Equal
-    } else {
-        Ordering::Greater
-    }
-}
-
 
 // Implementation of the Rabin-Miller algorithm
 // Returns true if n is probably prime or false if n is definitely composite
@@ -37,7 +24,7 @@ fn is_probable_prime(n: &BigUint, ntests: usize) -> bool {
             s += &one;
             d = d >> 1; // d / 2 but faster;
         }
-        for i in 0..ntests {
+        for _i in 0..ntests {
             let a = rng.gen_biguint_range(&two, &(n - &one));
             let mut x = a.modpow(&d, n);
             if x == one || x == n - &one {
@@ -92,7 +79,7 @@ fn xgcd(a: &BigInt, b: &BigInt) -> (BigInt, BigInt, BigInt) {
     let mut x1 = BigInt::zero();
     let mut y0 = BigInt::zero();
     let mut y1 = BigInt::one();
-    let mut q = BigInt::zero();
+    let mut q: BigInt;
 
     loop {
         q = &x / &y;
