@@ -3,6 +3,7 @@ use num_traits::{Zero, One, FromPrimitive, ToPrimitive};
 use num::integer::{lcm};
 use std::time::Instant;
 use std::io::{stdin, stdout, Write, Read};
+use std::process::exit;
 
 // Implementation of the Rabin-Miller algorithm
 // Returns true if n is probably prime or false if n is definitely composite
@@ -216,10 +217,15 @@ fn main() {
             println!("getpub - get own and the other party's public key");
             println!("setpub <e> <n> - set the other party's public key");
             println!("getpriv - get own private key");
+            println!("quit - quit the program");
         } else if input.starts_with("encrypt") {
-            input = input.replace("encrypt ", "").replace("\n", "");
-            let string_as_biguint = BigUint::from_bytes_be(input.as_bytes());
-            println!("output: {}", string_as_biguint.modpow(&other_e, &other_n));
+            if other_n != BigUint::zero() && other_e != BigUint::zero() {
+                input = input.replace("encrypt ", "").replace("\n", "");
+                let string_as_biguint = BigUint::from_bytes_be(input.as_bytes());
+                println!("output: {}", string_as_biguint.modpow(&other_e, &other_n));
+            } else {
+                println!("encrypt error: can't encrypt when the other party's public key hasn't been set");
+            }
         } else if input.starts_with("decrypt") {
             input = input.replace("decrypt ", "").replace("\n", "");
             let input_biguint = input.parse::<BigUint>().unwrap();
@@ -238,7 +244,7 @@ fn main() {
             println!("    e={}", other_e);
             println!("    n={}", other_n);
             if other_n == BigUint::zero() || other_e == BigUint::zero() {
-                println!("WARNING! Other party's key is not initialized.");
+                println!("WARNING! Other party's key has not been initialized.");
             }
         } else if input.starts_with("setpub") {
             input = input.replace("setpub", "").trim().to_string();
@@ -254,8 +260,10 @@ fn main() {
             println!("own private key:");
             println!("    d={}", d);
             println!("    n={}", n);
+        } else if input.starts_with("quit") {
+            exit(0);
         } else {
-            println!("command not found, use help for a list of commands and their usage");
+            println!("command not found, use 'help' for a list of commands and their usage");
         }
     }
 }
