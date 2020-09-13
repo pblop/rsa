@@ -159,7 +159,7 @@ fn test_modinverse() {
     }
 
     match does_not_exist {
-      Some(x) => panic!("modinverse() found an inverse when it shouldn't have"),
+      Some(_x) => panic!("modinverse() found an inverse when it shouldn't have"),
       None => {},
     }
 }
