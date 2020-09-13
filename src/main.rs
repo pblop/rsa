@@ -216,6 +216,7 @@ fn main() {
             println!("decrypt <text> - decrypt text with your rsa private key");
             println!("getpub - get own and the other party's public key");
             println!("setpub <e> <n> - set the other party's public key");
+            println!("getpriv - get own private key");
         } else if input.starts_with("encrypt") {
             input = input.replace("encrypt ", "").replace("\n", "");
             let string_as_biguint = BigUint::from_bytes_be(input.as_bytes());
@@ -250,6 +251,10 @@ fn main() {
             } else {
                 println!("setpub error: invalid argument length");
             }
+        } else if input.starts_with("getpriv") {
+            println!("own private key:");
+            println!("    d={}", d);
+            println!("    n={}", n);
         } else {
             println!("command not found, use help for a list of commands and their usage");
         }
