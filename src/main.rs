@@ -201,6 +201,9 @@ fn main() {
     let elapsed = now.elapsed();
     println!("...done in {:.4}!", elapsed.as_secs_f64());
 
+    let mut other_e: BigUint = BigUint::zero();
+    let mut other_d: BigUint = BigUint::zero();
+
     loop {
         print!("> ", );
         stdout().flush().unwrap();
@@ -211,8 +214,8 @@ fn main() {
             println!("help - print this message");
             println!("encrypt <text> - encrypt text with your rsa public key");
             println!("decrypt <text> - decrypt text with your rsa private key");
+            println!("getpub - get own and the other party's public key");
             println!("setpub <n> <e> - set the other party's public key (not implemented)");
-            println!("getpub - get own and the other party's public key (not implemented)");
         } else if input.starts_with("encrypt") {
             input = input.replace("encrypt ", "").replace("\n", "");
             let string_as_biguint = BigUint::from_bytes_be(input.as_bytes());
@@ -225,6 +228,16 @@ fn main() {
             let mut decrypted_string = String::new();
             decrypted_biguint.to_bytes_be().as_slice().read_to_string(&mut decrypted_string).unwrap();
             println!("output: {}", decrypted_string);
+        } else if input.starts_with("getpub") {
+            println!("own public key:");
+            println!("    e={}", e);
+            println!("    d={}", d);
+            println!("other party's public key:");
+            println!("    e={}", other_e);
+            println!("    d={}", other_d);
+            if other_d == BigUint::zero() || other_e == BigUint::one() {
+                println!("WARNING! Other party's key is not initialized.");
+            }
         }
 
     }
