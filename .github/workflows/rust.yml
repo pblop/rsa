@@ -17,6 +17,11 @@ jobs:
     - uses: actions/checkout@v2
     - name: Build
       run: cargo build --release
+    - name: Upload artifact
+      uses: actions/upload-artifact@v2
+      with:
+          name: rsa-linux
+          path: target/release/rsa
   build-windows:
     name: 'Build for Windows'
     runs-on: windows-latest
@@ -24,6 +29,11 @@ jobs:
     - uses: actions/checkout@v2
     - name: Build
       run: cargo build --release
+    - name: Upload artifact
+      uses: actions/upload-artifact@v2
+      with:
+          name: rsa.exe
+          path: target/release/rsa.exe
   build-mac:
     name: 'Build for macOS'
     runs-on: macos-latest
@@ -31,3 +41,8 @@ jobs:
     - uses: actions/checkout@v2
     - name: Build
       run: cargo build --release
+    - name: Upload artifact
+      uses: actions/upload-artifact@v2
+      with:
+          name: rsa-macos
+          path: target/release/rsa
